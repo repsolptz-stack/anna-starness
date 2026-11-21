@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANNA STARNESS — The Sound of Her Own World</title>
-<meta name="description" content="Anna Starness — официальный сайт. The Sound of Her Own World.">
+<title>АННА ЗВЕЗДНОСТЬ — Звуки ее собственного мира</title>
+<meta name="description" content="Официальный сайт Анны Звездности. The Sound of Her Own World.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@ body {
 
 body.loaded { overflow-y: auto; }
 
-a, button { color: inherit; font-family: inherit; cursor: none; }
+a, button { color: inherit; font-family: inherit; cursor: none; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
 /* ---------- GRAIN ---------- */
@@ -78,9 +78,7 @@ img { display: block; max-width: 100%; }
   border: 1.5px solid rgba(232,230,240,0.8);
   border-radius: 50%;
   transform: translate(-50%,-50%);
-  transition: width 0.35s cubic-bezier(0.16,1,0.3,1),
-              height 0.35s cubic-bezier(0.16,1,0.3,1),
-              background 0.35s, border-color 0.35s;
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1), height 0.35s cubic-bezier(0.16,1,0.3,1), background 0.35s, border-color 0.35s;
 }
 .cursor.hover {
   width: 60px; height: 60px;
@@ -147,8 +145,7 @@ section { position: relative; padding: 12vh 6vw; }
 [data-reveal] {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-              transform 1s cubic-bezier(0.16,1,0.3,1);
+  transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
 }
 [data-reveal].visible {
   opacity: 1;
@@ -164,7 +161,7 @@ section { position: relative; padding: 12vh 6vw; }
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding: 0 6vw;
+  padding: 0 5vw;
 }
 .hero-bg {
   position: absolute;
@@ -196,26 +193,21 @@ section { position: relative; padding: 12vh 6vw; }
   top: 40%; left: 45%;
   animation: float3 26s ease-in-out infinite;
 }
-@keyframes float1 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(8vw, 5vh) scale(1.1); }
-}
-@keyframes float2 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(-6vw, -8vh) scale(1.15); }
-}
-@keyframes float3 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(-10vw, 6vh) scale(0.9); }
-}
+@keyframes float1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(8vw, 5vh) scale(1.1); } }
+@keyframes float2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-6vw, -8vh) scale(1.15); } }
+@keyframes float3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-10vw, 6vh) scale(0.9); } }
 
 .hero-content {
   position: relative;
   z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .hero-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.5em;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 2.5rem;
@@ -224,12 +216,16 @@ section { position: relative; padding: 12vh 6vw; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.5rem, 16vw, 15rem);
-  letter-spacing: -0.045em;
-  line-height: 0.82;
+  /* Исправлено: уменьшен размер для мобильных и добавлен перенос */
+  font-size: clamp(3rem, 11vw, 13rem);
+  letter-spacing: -0.04em;
+  line-height: 0.85;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  word-wrap: break-word;
 }
 .hero-title .line {
   display: block;
@@ -238,26 +234,25 @@ section { position: relative; padding: 12vh 6vw; }
   animation: heroLine 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .hero-title .line:nth-child(2) { animation-delay: 0.2s; }
-@keyframes heroLine {
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes heroLine { to { opacity: 1; transform: translateY(0); } }
+
 .hero-slogan {
-  font-size: 0.72rem;
-  letter-spacing: 0.45em;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   font-weight: 400;
 }
 .enter-btn {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
   padding: 1.1rem 2.8rem;
   background: transparent;
   border: 1px solid rgba(232,230,240,0.25);
   border-radius: 100px;
   color: var(--text);
-  font-size: 0.72rem;
-  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 500;
   transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
@@ -276,7 +271,7 @@ section { position: relative; padding: 12vh 6vw; }
 .enter-btn:hover {
   border-color: transparent;
   color: var(--bg);
-  letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
 }
 .enter-btn:hover::before { opacity: 1; }
 
@@ -299,7 +294,7 @@ section { position: relative; padding: 12vh 6vw; }
 
 /* ---------- MANIFESTO ---------- */
 .manifesto {
-  padding: 20vh 6vw;
+  padding: 15vh 6vw;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -307,9 +302,9 @@ section { position: relative; padding: 12vh 6vw; }
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(1.6rem, 4.5vw, 3.6rem);
-  line-height: 1.25;
+  line-height: 1.3;
   letter-spacing: -0.02em;
-  max-width: 22ch;
+  max-width: 20ch;
 }
 .manifesto-text em {
   font-style: italic;
@@ -322,8 +317,7 @@ section { position: relative; padding: 12vh 6vw; }
   display: block;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
-              transform 1s cubic-bezier(0.16,1,0.3,1);
+  transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
 }
 .manifesto-text.visible .ln { opacity: 1; transform: translateY(0); }
 .manifesto-text.visible .ln:nth-child(2) { transition-delay: 0.1s; }
@@ -331,14 +325,11 @@ section { position: relative; padding: 12vh 6vw; }
 .manifesto-text.visible .ln:nth-child(4) { transition-delay: 0.3s; }
 
 /* ---------- UNIVERSE ---------- */
-.universe {
-  overflow: hidden;
-  min-height: 100vh;
-}
+.universe { overflow: hidden; min-height: 100vh; }
 .universe-stage {
   position: relative;
-  height: 80vh;
-  min-height: 500px;
+  height: 70vh;
+  min-height: 400px;
   margin-top: 2rem;
   border-radius: 24px;
   background:
@@ -375,9 +366,10 @@ section { position: relative; padding: 12vh 6vw; }
 
 .track {
   position: absolute;
-  width: 20px; height: 20px;
+  width: 24px; height: 24px; /* Увеличено для удобства тапа на мобильных */
   transform: translate(-50%,-50%);
   z-index: 3;
+  cursor: pointer;
 }
 .track-dot {
   width: 100%; height: 100%;
@@ -388,14 +380,13 @@ section { position: relative; padding: 12vh 6vw; }
   animation: trackPulse 3s ease-in-out infinite;
   animation-delay: var(--delay, 0s);
   transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s;
-  cursor: none;
 }
 @keyframes trackPulse {
   0%,100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.35); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 1; }
 }
-.track:hover .track-dot {
-  transform: scale(1.8);
+.track:hover .track-dot, .track:active .track-dot {
+  transform: scale(1.6);
   opacity: 1;
 }
 .track-info {
@@ -403,7 +394,7 @@ section { position: relative; padding: 12vh 6vw; }
   top: 50%;
   left: 150%;
   transform: translateY(-50%) translateX(-10px);
-  padding: 0.7rem 1.1rem;
+  padding: 0.6rem 1rem;
   background: rgba(10,10,12,0.9);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(232,230,240,0.1);
@@ -413,22 +404,22 @@ section { position: relative; padding: 12vh 6vw; }
   pointer-events: none;
   transition: opacity 0.3s, transform 0.3s;
 }
-.track:hover .track-info {
+.track:hover .track-info, .track.active .track-info {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
 .track-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 0.02em;
 }
 .track-meta {
   font-size: 0.65rem;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 /* Player */
@@ -438,17 +429,17 @@ section { position: relative; padding: 12vh 6vw; }
   background: rgba(28,27,31,0.95);
   backdrop-filter: blur(24px);
   border-top: 1px solid rgba(182,156,255,0.2);
-  padding: 1.2rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   z-index: 200;
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
 }
 .player-panel.active { transform: translateY(0); }
 .player-cover {
-  width: 52px; height: 52px;
+  width: 48px; height: 48px;
   border-radius: 8px;
   background: var(--lavender);
   flex-shrink: 0;
@@ -457,12 +448,15 @@ section { position: relative; padding: 12vh 6vw; }
 .player-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 4px;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .player-meta {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -472,7 +466,7 @@ section { position: relative; padding: 12vh 6vw; }
   background: rgba(232,230,240,0.1);
   border-radius: 2px;
   overflow: hidden;
-  min-width: 100px;
+  min-width: 80px;
 }
 .player-progress-bar {
   height: 100%;
@@ -480,16 +474,12 @@ section { position: relative; padding: 12vh 6vw; }
   background: linear-gradient(90deg, var(--lavender), var(--coral));
   animation: progressPlay 12s linear infinite;
 }
-@keyframes progressPlay {
-  from { width: 0%; }
-  to { width: 100%; }
-}
+@keyframes progressPlay { from { width: 0%; } to { width: 100%; } }
 .player-close {
   background: none;
   border: none;
   color: var(--muted);
   font-size: 1.5rem;
-  line-height: 1;
   padding: 0.5rem;
   transition: color 0.3s;
 }
@@ -508,7 +498,6 @@ section { position: relative; padding: 12vh 6vw; }
   overflow: hidden;
   background: var(--bg-2);
   transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-  cursor: none;
 }
 .diary-item::before {
   content: '';
@@ -524,8 +513,8 @@ section { position: relative; padding: 12vh 6vw; }
   position: absolute;
   bottom: 0; left: 0; right: 0;
   padding: 1rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text);
   background: linear-gradient(transparent, rgba(10,10,12,0.85));
@@ -536,55 +525,21 @@ section { position: relative; padding: 12vh 6vw; }
 .diary-item:hover::after { opacity: 1; }
 
 .diary-item:nth-child(1) { grid-column: span 2; grid-row: span 3; }
-.diary-item:nth-child(1)::before {
-  background:
-    radial-gradient(circle at 30% 40%, rgba(182,156,255,0.6), transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255,122,107,0.4), transparent 45%),
-    linear-gradient(135deg, #1C1B1F, #0A0A0C);
-}
+.diary-item:nth-child(1)::before { background: radial-gradient(circle at 30% 40%, rgba(182,156,255,0.6), transparent 50%), radial-gradient(circle at 75% 75%, rgba(255,122,107,0.4), transparent 45%), linear-gradient(135deg, #1C1B1F, #0A0A0C); }
 .diary-item:nth-child(2) { grid-column: span 1; grid-row: span 2; }
-.diary-item:nth-child(2)::before {
-  background:
-    radial-gradient(circle at 60% 30%, rgba(94,224,224,0.5), transparent 55%),
-    linear-gradient(180deg, #1C1B1F, #0A0A0C);
-}
+.diary-item:nth-child(2)::before { background: radial-gradient(circle at 60% 30%, rgba(94,224,224,0.5), transparent 55%), linear-gradient(180deg, #1C1B1F, #0A0A0C); }
 .diary-item:nth-child(3) { grid-column: span 1; grid-row: span 2; }
-.diary-item:nth-child(3)::before {
-  background:
-    radial-gradient(circle at 40% 60%, rgba(255,122,107,0.5), transparent 60%),
-    linear-gradient(45deg, #1C1B1F, #0A0A0C);
-}
+.diary-item:nth-child(3)::before { background: radial-gradient(circle at 40% 60%, rgba(255,122,107,0.5), transparent 60%), linear-gradient(45deg, #1C1B1F, #0A0A0C); }
 .diary-item:nth-child(4) { grid-column: span 1; grid-row: span 2; }
-.diary-item:nth-child(4)::before {
-  background:
-    conic-gradient(from 0deg at 50% 50%, rgba(182,156,255,0.4), rgba(255,122,107,0.3), rgba(94,224,224,0.4), rgba(182,156,255,0.4)),
-    #1C1B1F;
-}
+.diary-item:nth-child(4)::before { background: conic-gradient(from 0deg at 50% 50%, rgba(182,156,255,0.4), rgba(255,122,107,0.3), rgba(94,224,224,0.4), rgba(182,156,255,0.4)), #1C1B1F; }
 .diary-item:nth-child(5) { grid-column: span 1; grid-row: span 2; }
-.diary-item:nth-child(5)::before {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(232,230,240,0.15), transparent 70%),
-    linear-gradient(120deg, rgba(182,156,255,0.2), rgba(255,122,107,0.2));
-}
+.diary-item:nth-child(5)::before { background: radial-gradient(circle at 50% 50%, rgba(232,230,240,0.15), transparent 70%), linear-gradient(120deg, rgba(182,156,255,0.2), rgba(255,122,107,0.2)); }
 .diary-item:nth-child(6) { grid-column: span 2; grid-row: span 2; }
-.diary-item:nth-child(6)::before {
-  background:
-    radial-gradient(circle at 25% 30%, rgba(94,224,224,0.5), transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(182,156,255,0.5), transparent 45%),
-    linear-gradient(135deg, #1C1B1F, #0A0A0C);
-}
+.diary-item:nth-child(6)::before { background: radial-gradient(circle at 25% 30%, rgba(94,224,224,0.5), transparent 45%), radial-gradient(circle at 80% 70%, rgba(182,156,255,0.5), transparent 45%), linear-gradient(135deg, #1C1B1F, #0A0A0C); }
 .diary-item:nth-child(7) { grid-column: span 1; grid-row: span 3; }
-.diary-item:nth-child(7)::before {
-  background:
-    linear-gradient(180deg, rgba(255,122,107,0.4), rgba(182,156,255,0.4), rgba(10,10,12,0.9)),
-    #1C1B1F;
-}
+.diary-item:nth-child(7)::before { background: linear-gradient(180deg, rgba(255,122,107,0.4), rgba(182,156,255,0.4), rgba(10,10,12,0.9)), #1C1B1F; }
 .diary-item:nth-child(8) { grid-column: span 1; grid-row: span 2; }
-.diary-item:nth-child(8)::before {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(232,230,240,0.25), transparent 60%),
-    linear-gradient(180deg, #1C1B1F, #0A0A0C);
-}
+.diary-item:nth-child(8)::before { background: radial-gradient(circle at 50% 20%, rgba(232,230,240,0.25), transparent 60%), linear-gradient(180deg, #1C1B1F, #0A0A0C); }
 
 /* ---------- VIDEO SECTION ---------- */
 .video-section {
@@ -594,7 +549,7 @@ section { position: relative; padding: 12vh 6vw; }
   text-align: center;
 }
 .video-container {
-  width: min(400px, 90vw);
+  width: min(360px, 90vw); /* Уменьшено для мобильных */
   aspect-ratio: 9/16;
   border-radius: 20px;
   overflow: hidden;
@@ -611,7 +566,7 @@ section { position: relative; padding: 12vh 6vw; }
   position: absolute;
   top: 1.5rem; left: 1.5rem;
   font-size: 0.65rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text);
   padding: 0.5rem 0.9rem;
@@ -624,7 +579,7 @@ section { position: relative; padding: 12vh 6vw; }
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
-  width: 88px; height: 88px;
+  width: 80px; height: 80px;
   border-radius: 50%;
   background: rgba(232,230,240,0.08);
   border: 1.5px solid rgba(232,230,240,0.4);
@@ -637,9 +592,9 @@ section { position: relative; padding: 12vh 6vw; }
 .play-btn::after {
   content: '';
   width: 0; height: 0;
-  border-left: 18px solid var(--text);
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
+  border-left: 16px solid var(--text);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   margin-left: 5px;
   transition: transform 0.3s;
 }
@@ -650,8 +605,8 @@ section { position: relative; padding: 12vh 6vw; }
 }
 .video-caption {
   margin-top: 2rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -660,14 +615,14 @@ section { position: relative; padding: 12vh 6vw; }
 .contact {
   max-width: 900px;
   margin: 0 auto;
-  padding: 18vh 6vw;
+  padding: 15vh 6vw;
 }
 .contact-title {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   letter-spacing: -0.03em;
-  line-height: 0.95;
+  line-height: 1;
   margin-bottom: 3rem;
 }
 .contact-title em {
@@ -696,7 +651,6 @@ section { position: relative; padding: 12vh 6vw; }
   outline: none;
   transition: border-color 0.3s;
   resize: none;
-  cursor: none;
 }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
@@ -708,40 +662,38 @@ section { position: relative; padding: 12vh 6vw; }
 .contact-form textarea:focus {
   border-color: var(--lavender);
 }
-.contact-form textarea { min-height: 120px; }
+.contact-form textarea { min-height: 100px; }
 .submit-btn {
   align-self: flex-start;
-  margin-top: 2rem;
-  padding: 1.1rem 2.8rem;
+  margin-top: 1.5rem;
+  padding: 1.1rem 2.5rem;
   background: var(--text);
   color: var(--bg);
   border: none;
   border-radius: 100px;
-  font-size: 0.72rem;
-  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 .submit-btn:hover {
   background: var(--lavender);
-  letter-spacing: 0.4em;
+  letter-spacing: 0.35em;
   transform: translateY(-2px);
 }
 .contact-info {
-  margin-top: 5rem;
+  margin-top: 4rem;
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
   padding-top: 3rem;
   border-top: 1px solid rgba(232,230,240,0.08);
 }
 .contact-link {
-  text-decoration: none;
   font-size: 0.85rem;
   color: var(--muted);
   transition: color 0.3s;
-  position: relative;
 }
 .contact-link:hover { color: var(--text); }
 .contact-link span {
@@ -775,46 +727,54 @@ section { position: relative; padding: 12vh 6vw; }
   -webkit-text-fill-color: transparent;
 }
 .footer-meta {
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 0.65rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--muted);
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
   section { padding: 8vh 5vw; }
-  .diary-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
-  }
+  .diary-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; gap: 10px; }
   .diary-item:nth-child(n) { grid-column: span 1; grid-row: span 2; }
-  .diary-item:nth-child(1),
-  .diary-item:nth-child(6) { grid-column: span 2; }
+  .diary-item:nth-child(1), .diary-item:nth-child(6) { grid-column: span 2; }
   .form-row { grid-template-columns: 1fr; }
-  .contact-info { gap: 1.5rem; }
-  .player-panel { padding: 1rem; gap: 1rem; }
-  .player-progress { display: none; }
+  .contact-info { gap: 1.5rem; flex-direction: column; }
+  .player-progress { display: none; } /* Скрываем прогресс-бар на мобильных для экономии места */
 }
 
+/* Отключаем кастомный курсор на тач-устройствах */
 @media (max-width: 768px), (hover: none) {
   body { cursor: auto; }
   .cursor-wrap { display: none; }
   a, button, .track-dot, .diary-item, input, textarea { cursor: auto; }
   .track-dot { cursor: pointer; }
-  .diary-item { cursor: pointer; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: clamp(3rem, 22vw, 6rem); }
-  .hero-slogan { font-size: 0.6rem; letter-spacing: 0.35em; }
-  .diary-grid { grid-auto-rows: 110px; gap: 10px; }
+  /* Точная настройка под смартфоны */
+  .hero-title { font-size: 13vw; } 
+  .hero-slogan { font-size: 0.65rem; letter-spacing: 0.25em; }
+  .enter-btn { padding: 1rem 2rem; font-size: 0.7rem; }
   .section-title { margin-bottom: 2.5rem; }
+  .contact-title { font-size: 2.5rem; }
+  .video-container { width: 100%; }
+  
+  /* На мобильных подсказки к трекам показываем по центру экрана */
+  .track-info {
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+  }
+  .track:hover .track-info, .track.active .track-info {
+    transform: translateX(-50%);
+  }
 }
 </style>
 </head>
@@ -844,20 +804,20 @@ section { position: relative; padding: 12vh 6vw; }
     <div class="blob blob-3"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Official Website</div>
+    <div class="hero-eyebrow">Официальный веб-сайт</div>
     <h1 class="hero-title">
-      <span class="line">ANNA</span>
-      <span class="line">STARNESS</span>
+      <span class="line">Анна</span>
+      <span class="line">Звездность</span>
     </h1>
-    <div class="hero-slogan">The Sound of Her Own World</div>
-    <button class="enter-btn" data-scroll="#manifesto">Enter Her World</button>
+    <div class="hero-slogan">Звуки ее собственного мира</div>
+    <button class="enter-btn" data-scroll="#manifesto">Войти в ее мир</button>
   </div>
-  <div class="scroll-hint">Scroll</div>
+  <div class="scroll-hint">Скролл</div>
 </section>
 
 <!-- ============ MANIFESTO ============ -->
 <section class="manifesto" id="manifesto">
-  <div class="section-num">01 — Manifesto</div>
+  <div class="section-num">01 — Манифест</div>
   <p class="manifesto-text" data-reveal>
     <span class="ln">Я не пою для всех.</span>
     <span class="ln">Я пою для тех, кто слышит</span>
@@ -869,63 +829,63 @@ section { position: relative; padding: 12vh 6vw; }
 <!-- ============ UNIVERSE ============ -->
 <section class="universe" id="universe">
   <div data-reveal>
-    <div class="section-num">02 — The Sound</div>
-    <h2 class="section-title">Universe<br>of Sound</h2>
+    <div class="section-num">02 — Звук</div>
+    <h2 class="section-title">Вселенная<br>звука</h2>
   </div>
   <div class="universe-stage" data-reveal>
     <div class="center-orb"></div>
 
-    <div class="track" style="top:22%; left:28%; --c:var(--lavender); --delay:0s"
-         data-name="Own World" data-dur="3:42" data-color="linear-gradient(135deg,#B69CFF,#5EE0E0)">
+    <div class="track" style="top:25%; left:30%; --c:var(--lavender); --delay:0s"
+         data-name="Свой мир" data-dur="3:42" data-color="linear-gradient(135deg,#B69CFF,#5EE0E0)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Own World</div>
-        <div class="track-meta">3:42 · Lead Single</div>
+        <div class="track-name">Свой мир</div>
+        <div class="track-meta">3:42 · Главный сингл</div>
       </div>
     </div>
 
-    <div class="track" style="top:28%; left:72%; --c:var(--coral); --delay:0.6s"
-         data-name="Glass Heart" data-dur="3:18" data-color="linear-gradient(135deg,#FF7A6B,#B69CFF)">
+    <div class="track" style="top:35%; left:75%; --c:var(--coral); --delay:0.6s"
+         data-name="Стеклянное сердце" data-dur="3:18" data-color="linear-gradient(135deg,#FF7A6B,#B69CFF)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Glass Heart</div>
-        <div class="track-meta">3:18 · Single</div>
+        <div class="track-name">Стеклянное сердце</div>
+        <div class="track-meta">3:18 · Сингл</div>
       </div>
     </div>
 
-    <div class="track" style="top:55%; left:85%; --c:var(--cyan); --delay:1.2s"
-         data-name="Neon Prayers" data-dur="4:05" data-color="linear-gradient(135deg,#5EE0E0,#B69CFF)">
+    <div class="track" style="top:70%; left:80%; --c:var(--cyan); --delay:1.2s"
+         data-name="Неоновые молитвы" data-dur="4:05" data-color="linear-gradient(135deg,#5EE0E0,#B69CFF)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Neon Prayers</div>
-        <div class="track-meta">4:05 · Single</div>
+        <div class="track-name">Неоновые молитвы</div>
+        <div class="track-meta">4:05 · Сингл</div>
       </div>
     </div>
 
-    <div class="track" style="top:75%; left:68%; --c:var(--lavender); --delay:1.8s"
-         data-name="Echo Chamber" data-dur="3:55" data-color="linear-gradient(135deg,#B69CFF,#FF7A6B)">
+    <div class="track" style="top:80%; left:40%; --c:var(--lavender); --delay:1.8s"
+         data-name="Эхо" data-dur="3:55" data-color="linear-gradient(135deg,#B69CFF,#FF7A6B)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Echo Chamber</div>
-        <div class="track-meta">3:55 · Single</div>
+        <div class="track-name">Эхо</div>
+        <div class="track-meta">3:55 · Сингл</div>
       </div>
     </div>
 
-    <div class="track" style="top:72%; left:30%; --c:var(--coral); --delay:2.4s"
-         data-name="Silent Cosmic" data-dur="4:22" data-color="linear-gradient(135deg,#FF7A6B,#5EE0E0)">
+    <div class="track" style="top:25%; left:65%; --c:var(--coral); --delay:2.4s"
+         data-name="Тихий космос" data-dur="4:22" data-color="linear-gradient(135deg,#FF7A6B,#5EE0E0)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Silent Cosmic</div>
-        <div class="track-meta">4:22 · Single</div>
+        <div class="track-name">Тихий космос</div>
+        <div class="track-meta">4:22 · Сингл</div>
       </div>
     </div>
 
-    <div class="track" style="top:45%; left:15%; --c:var(--cyan); --delay:3s"
-         data-name="Paper Moon" data-dur="3:33" data-color="linear-gradient(135deg,#5EE0E0,#FF7A6B)">
+    <div class="track" style="top:55%; left:20%; --c:var(--cyan); --delay:3s"
+         data-name="Бумажная луна" data-dur="3:33" data-color="linear-gradient(135deg,#5EE0E0,#FF7A6B)">
       <div class="track-dot"></div>
       <div class="track-info">
-        <div class="track-name">Paper Moon</div>
-        <div class="track-meta">3:33 · Single</div>
+        <div class="track-name">Бумажная луна</div>
+        <div class="track-meta">3:33 · Сингл</div>
       </div>
     </div>
   </div>
@@ -934,60 +894,60 @@ section { position: relative; padding: 12vh 6vw; }
 <!-- ============ DIARY ============ -->
 <section class="diary" id="diary">
   <div data-reveal>
-    <div class="section-num">03 — Visual Diary</div>
-    <h2 class="section-title">Fragments</h2>
+    <div class="section-num">03 — Визуальный дневник</div>
+    <h2 class="section-title">Фрагменты</h2>
   </div>
   <div class="diary-grid" data-reveal>
-    <div class="diary-item" data-caption="Backstage · Berlin"></div>
-    <div class="diary-item" data-caption="Studio · 3AM"></div>
-    <div class="diary-item" data-caption="Notebook · Page 47"></div>
-    <div class="diary-item" data-caption="Light Leak"></div>
-    <div class="diary-item" data-caption="Silhouette"></div>
-    <div class="diary-item" data-caption="Stage · First Light"></div>
-    <div class="diary-item" data-caption="Polaroid · Untitled"></div>
-    <div class="diary-item" data-caption="Film Grain"></div>
+    <div class="diary-item" data-caption="Бэкстейдж · Берлин"></div>
+    <div class="diary-item" data-caption="Студия · 3 ночи"></div>
+    <div class="diary-item" data-caption="Блокнот · Страница 47"></div>
+    <div class="diary-item" data-caption="Засветка"></div>
+    <div class="diary-item" data-caption="Силуэт"></div>
+    <div class="diary-item" data-caption="Сцена · Первый свет"></div>
+    <div class="diary-item" data-caption="Полароид · Без названия"></div>
+    <div class="diary-item" data-caption="Пленка"></div>
   </div>
 </section>
 
 <!-- ============ VIDEO MANIFESTO ============ -->
 <section class="video-section" id="video">
   <div data-reveal>
-    <div class="section-num">04 — Video Manifesto</div>
-    <h2 class="section-title">Behind<br>The Sound</h2>
+    <div class="section-num">04 — Видео-манифест</div>
+    <h2 class="section-title">Позади<br>этого звука</h2>
   </div>
   <div class="video-container" data-reveal>
-    <div class="video-badge">Live Session</div>
+    <div class="video-badge">Сеанс в прямом эфире</div>
     <div class="play-btn" id="playBtn"></div>
   </div>
-  <div class="video-caption">A Vertical Film · 04:12</div>
+  <div class="video-caption">Вертикальный фильм · 04:12</div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div data-reveal>
-    <div class="section-num">05 — Contact</div>
-    <h2 class="contact-title">Enter<br>the <em>portal</em></h2>
+    <div class="section-num">05 — Контакты</div>
+    <h2 class="contact-title">Войти<br>в <em>портал</em></h2>
   </div>
   <form class="contact-form" data-reveal id="contactForm">
     <div class="form-row">
       <input type="text" placeholder="Ваше имя" required>
       <input type="email" placeholder="Email" required>
     </div>
-    <textarea placeholder="Ваше сообщение / booking / collaboration" required></textarea>
-    <button type="submit" class="submit-btn">Send Message</button>
+    <textarea placeholder="Ваше сообщение / booking / сотрудничество" required></textarea>
+    <button type="submit" class="submit-btn">Отправить</button>
   </form>
   <div class="contact-info" data-reveal>
     <a href="mailto:booking@annastarness.com" class="contact-link">
-      <span>Booking</span>
+      <span>Букинг</span>
       booking@annastarness.com
     </a>
     <a href="#" class="contact-link">
-      <span>Instagram</span>
+      <span>Инстаграм</span>
       @annastarness
     </a>
     <a href="#" class="contact-link">
-      <span>Spotify</span>
-      Listen now
+      <span>Спотифай</span>
+      Слушать
     </a>
   </div>
 </section>
@@ -996,9 +956,8 @@ section { position: relative; padding: 12vh 6vw; }
 <footer class="footer">
   <div class="footer-text">The Sound<br>of Her Own<br>World</div>
   <div class="footer-meta">
-    <span>© 2025 Anna Starness</span>
-    <span>All rights reserved</span>
-    <span>Made with sound & light</span>
+    <span>© 2025 Анна Звездность</span>
+    <span>Все права защищены</span>
   </div>
 </footer>
 
@@ -1006,8 +965,8 @@ section { position: relative; padding: 12vh 6vw; }
 <div class="player-panel" id="player">
   <div class="player-cover"></div>
   <div class="player-info">
-    <div class="player-title">Track</div>
-    <div class="player-meta">Single</div>
+    <div class="player-title">Трек</div>
+    <div class="player-meta">Сингл</div>
   </div>
   <div class="player-progress">
     <div class="player-progress-bar"></div>
@@ -1091,12 +1050,16 @@ const playerProgressBar = player.querySelector('.player-progress-bar');
 
 document.querySelectorAll('.track').forEach(track => {
   track.addEventListener('click', () => {
+    // Сброс активного класса у других
+    document.querySelectorAll('.track').forEach(t => t.classList.remove('active'));
+    // Добавление активного
+    track.classList.add('active');
+
     playerTitle.textContent = track.dataset.name;
-    playerMeta.textContent = track.dataset.dur + ' · Single';
+    playerMeta.textContent = track.dataset.dur + ' · Сингл';
     playerCover.style.background = track.dataset.color;
     playerProgressBar.style.animation = 'none';
-    // restart animation
-    void playerProgressBar.offsetWidth;
+    void playerProgressBar.offsetWidth; /* Перезапуск анимации */
     playerProgressBar.style.animation = 'progressPlay 12s linear infinite';
     player.classList.add('active');
   });
@@ -1104,6 +1067,7 @@ document.querySelectorAll('.track').forEach(track => {
 
 document.getElementById('playerClose').addEventListener('click', () => {
   player.classList.remove('active');
+  document.querySelectorAll('.track').forEach(t => t.classList.remove('active'));
 });
 
 /* ============ VIDEO PLAY BUTTON ============ */
@@ -1112,7 +1076,6 @@ document.getElementById('playBtn').addEventListener('click', function() {
   setTimeout(() => {
     this.style.transform = 'translate(-50%,-50%) scale(1)';
   }, 200);
-  // In a real implementation: open modal / play video
 });
 
 /* ============ CONTACT FORM ============ */
@@ -1120,7 +1083,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = this.querySelector('.submit-btn');
   const original = btn.textContent;
-  btn.textContent = 'SENT ✓';
+  btn.textContent = 'ОТПРАВЛЕНО ✓';
   btn.style.background = 'var(--lavender)';
   setTimeout(() => {
     btn.textContent = original;
@@ -1128,20 +1091,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     this.reset();
   }, 2500);
 });
-
-/* ============ HERO TITLE PARALLAX ON MOUSE ============ */
-const hero = document.getElementById('hero');
-if (hero && window.matchMedia('(hover: hover)').matches) {
-  hero.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 20;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-    document.querySelectorAll('.blob').forEach((b, i) => {
-      const factor = (i + 1) * 0.6;
-      b.style.marginLeft = (x * factor) + 'px';
-      b.style.marginTop = (y * factor) + 'px';
-    });
-  });
-}
 </script>
 </body>
 </html>
