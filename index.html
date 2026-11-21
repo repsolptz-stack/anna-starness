@@ -216,7 +216,6 @@ section { position: relative; padding: 12vh 6vw; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 800;
-  /* Исправлено: уменьшен размер для мобильных и добавлен перенос */
   font-size: clamp(3rem, 11vw, 13rem);
   letter-spacing: -0.04em;
   line-height: 0.85;
@@ -268,11 +267,7 @@ section { position: relative; padding: 12vh 6vw; }
   transition: opacity 0.4s;
   z-index: -1;
 }
-.enter-btn:hover {
-  border-color: transparent;
-  color: var(--bg);
-  letter-spacing: 0.35em;
-}
+.enter-btn:hover { border-color: transparent; color: var(--bg); letter-spacing: 0.35em; }
 .enter-btn:hover::before { opacity: 1; }
 
 .scroll-hint {
@@ -293,11 +288,7 @@ section { position: relative; padding: 12vh 6vw; }
 }
 
 /* ---------- MANIFESTO ---------- */
-.manifesto {
-  padding: 15vh 6vw;
-  max-width: 1400px;
-  margin: 0 auto;
-}
+.manifesto { padding: 15vh 6vw; max-width: 1400px; margin: 0 auto; }
 .manifesto-text {
   font-family: var(--font-body);
   font-weight: 300;
@@ -332,10 +323,7 @@ section { position: relative; padding: 12vh 6vw; }
   min-height: 400px;
   margin-top: 2rem;
   border-radius: 24px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(182,156,255,0.06), transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(255,122,107,0.04), transparent 50%),
-    var(--bg-2);
+  background: radial-gradient(circle at 50% 50%, rgba(182,156,255,0.06), transparent 60%), radial-gradient(circle at 20% 80%, rgba(255,122,107,0.04), transparent 50%), var(--bg-2);
   border: 1px solid rgba(232,230,240,0.05);
   overflow: hidden;
 }
@@ -366,7 +354,7 @@ section { position: relative; padding: 12vh 6vw; }
 
 .track {
   position: absolute;
-  width: 24px; height: 24px; /* Увеличено для удобства тапа на мобильных */
+  width: 24px; height: 24px;
   transform: translate(-50%,-50%);
   z-index: 3;
   cursor: pointer;
@@ -385,14 +373,10 @@ section { position: relative; padding: 12vh 6vw; }
   0%,100% { transform: scale(1); opacity: 0.85; }
   50% { transform: scale(1.3); opacity: 1; }
 }
-.track:hover .track-dot, .track:active .track-dot {
-  transform: scale(1.6);
-  opacity: 1;
-}
+.track:hover .track-dot, .track:active .track-dot { transform: scale(1.6); opacity: 1; }
 .track-info {
   position: absolute;
-  top: 50%;
-  left: 150%;
+  top: 50%; left: 150%;
   transform: translateY(-50%) translateX(-10px);
   padding: 0.6rem 1rem;
   background: rgba(10,10,12,0.9);
@@ -404,23 +388,9 @@ section { position: relative; padding: 12vh 6vw; }
   pointer-events: none;
   transition: opacity 0.3s, transform 0.3s;
 }
-.track:hover .track-info, .track.active .track-info {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-}
-.track-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-}
-.track-meta {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 3px;
-}
+.track:hover .track-info, .track.active .track-info { opacity: 1; transform: translateY(-50%) translateX(0); }
+.track-name { font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; }
+.track-meta { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
 
 /* Player */
 .player-panel {
@@ -438,51 +408,14 @@ section { position: relative; padding: 12vh 6vw; }
   transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
 }
 .player-panel.active { transform: translateY(0); }
-.player-cover {
-  width: 48px; height: 48px;
-  border-radius: 8px;
-  background: var(--lavender);
-  flex-shrink: 0;
-}
+.player-cover { width: 48px; height: 48px; border-radius: 8px; background: var(--lavender); flex-shrink: 0; }
 .player-info { flex: 1; min-width: 0; }
-.player-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.player-meta {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.player-progress {
-  flex: 2;
-  height: 2px;
-  background: rgba(232,230,240,0.1);
-  border-radius: 2px;
-  overflow: hidden;
-  min-width: 80px;
-}
-.player-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--lavender), var(--coral));
-  animation: progressPlay 12s linear infinite;
-}
+.player-title { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-meta { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.player-progress { flex: 2; height: 2px; background: rgba(232,230,240,0.1); border-radius: 2px; overflow: hidden; min-width: 80px; }
+.player-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--lavender), var(--coral)); animation: progressPlay 12s linear infinite; }
 @keyframes progressPlay { from { width: 0%; } to { width: 100%; } }
-.player-close {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  transition: color 0.3s;
-}
+.player-close { background: none; border: none; color: var(--muted); font-size: 1.5rem; padding: 0.5rem; transition: color 0.3s; }
 .player-close:hover { color: var(--text); }
 
 /* ---------- DIARY ---------- */
@@ -542,22 +475,14 @@ section { position: relative; padding: 12vh 6vw; }
 .diary-item:nth-child(8)::before { background: radial-gradient(circle at 50% 20%, rgba(232,230,240,0.25), transparent 60%), linear-gradient(180deg, #1C1B1F, #0A0A0C); }
 
 /* ---------- VIDEO SECTION ---------- */
-.video-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+.video-section { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .video-container {
-  width: min(360px, 90vw); /* Уменьшено для мобильных */
+  width: min(360px, 90vw);
   aspect-ratio: 9/16;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  background:
-    radial-gradient(circle at 50% 30%, rgba(182,156,255,0.3), transparent 60%),
-    radial-gradient(circle at 30% 70%, rgba(255,122,107,0.25), transparent 60%),
-    linear-gradient(180deg, #1C1B1F, #0A0A0C);
+  background: radial-gradient(circle at 50% 30%, rgba(182,156,255,0.3), transparent 60%), radial-gradient(circle at 30% 70%, rgba(255,122,107,0.25), transparent 60%), linear-gradient(180deg, #1C1B1F, #0A0A0C);
   border: 1px solid rgba(232,230,240,0.1);
   transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
 }
@@ -598,49 +523,16 @@ section { position: relative; padding: 12vh 6vw; }
   margin-left: 5px;
   transition: transform 0.3s;
 }
-.play-btn:hover {
-  background: rgba(182,156,255,0.3);
-  border-color: var(--lavender);
-  transform: translate(-50%,-50%) scale(1.1);
-}
-.video-caption {
-  margin-top: 2rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+.play-btn:hover { background: rgba(182,156,255,0.3); border-color: var(--lavender); transform: translate(-50%,-50%) scale(1.1); }
+.video-caption { margin-top: 2rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
 
 /* ---------- CONTACT ---------- */
-.contact {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 15vh 6vw;
-}
-.contact-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 3rem;
-}
-.contact-title em {
-  font-style: italic;
-  color: var(--lavender);
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-.contact-form input,
-.contact-form textarea {
+.contact { max-width: 900px; margin: 0 auto; padding: 15vh 6vw; }
+.contact-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.5rem, 7vw, 5.5rem); letter-spacing: -0.03em; line-height: 1; margin-bottom: 3rem; }
+.contact-title em { font-style: italic; color: var(--lavender); }
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.contact-form input, .contact-form textarea {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(232,230,240,0.15);
@@ -652,16 +544,8 @@ section { position: relative; padding: 12vh 6vw; }
   transition: border-color 0.3s;
   resize: none;
 }
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--lavender);
-}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--lavender); }
 .contact-form textarea { min-height: 100px; }
 .submit-btn {
   align-self: flex-start;
@@ -677,33 +561,11 @@ section { position: relative; padding: 12vh 6vw; }
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
 }
-.submit-btn:hover {
-  background: var(--lavender);
-  letter-spacing: 0.35em;
-  transform: translateY(-2px);
-}
-.contact-info {
-  margin-top: 4rem;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(232,230,240,0.08);
-}
-.contact-link {
-  font-size: 0.85rem;
-  color: var(--muted);
-  transition: color 0.3s;
-}
+.submit-btn:hover { background: var(--lavender); letter-spacing: 0.35em; transform: translateY(-2px); }
+.contact-info { margin-top: 4rem; display: flex; gap: 2rem; flex-wrap: wrap; padding-top: 3rem; border-top: 1px solid rgba(232,230,240,0.08); }
+.contact-link { font-size: 0.85rem; color: var(--muted); transition: color 0.3s; }
 .contact-link:hover { color: var(--text); }
-.contact-link span {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--text);
-  margin-bottom: 4px;
-}
+.contact-link span { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 4px; }
 
 /* ---------- FOOTER ---------- */
 .footer {
@@ -726,17 +588,7 @@ section { position: relative; padding: 12vh 6vw; }
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.footer-meta {
-  margin-top: 2rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
+.footer-meta { margin-top: 2rem; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
@@ -746,10 +598,9 @@ section { position: relative; padding: 12vh 6vw; }
   .diary-item:nth-child(1), .diary-item:nth-child(6) { grid-column: span 2; }
   .form-row { grid-template-columns: 1fr; }
   .contact-info { gap: 1.5rem; flex-direction: column; }
-  .player-progress { display: none; } /* Скрываем прогресс-бар на мобильных для экономии места */
+  .player-progress { display: none; }
 }
 
-/* Отключаем кастомный курсор на тач-устройствах */
 @media (max-width: 768px), (hover: none) {
   body { cursor: auto; }
   .cursor-wrap { display: none; }
@@ -758,7 +609,6 @@ section { position: relative; padding: 12vh 6vw; }
 }
 
 @media (max-width: 480px) {
-  /* Точная настройка под смартфоны */
   .hero-title { font-size: 13vw; } 
   .hero-slogan { font-size: 0.65rem; letter-spacing: 0.25em; }
   .enter-btn { padding: 1rem 2rem; font-size: 0.7rem; }
@@ -766,32 +616,18 @@ section { position: relative; padding: 12vh 6vw; }
   .contact-title { font-size: 2.5rem; }
   .video-container { width: 100%; }
   
-  /* На мобильных подсказки к трекам показываем по центру экрана */
-  .track-info {
-    left: 50%;
-    top: -60px;
-    transform: translateX(-50%);
-  }
-  .track:hover .track-info, .track.active .track-info {
-    transform: translateX(-50%);
-  }
+  .track-info { left: 50%; top: -60px; transform: translateX(-50%); }
+  .track:hover .track-info, .track.active .track-info { transform: translateX(-50%); }
 }
 </style>
 </head>
 <body>
 
-<!-- Grain overlay -->
 <div class="grain"></div>
-
-<!-- Progress bar -->
 <div class="progress-bar" id="progressBar"></div>
-
-<!-- Custom cursor -->
 <div class="cursor-wrap" id="cursorWrap">
   <div class="cursor" id="cursor"></div>
 </div>
-
-<!-- Preloader -->
 <div class="preloader" id="preloader">
   <div class="preloader-dot"></div>
 </div>
@@ -835,58 +671,34 @@ section { position: relative; padding: 12vh 6vw; }
   <div class="universe-stage" data-reveal>
     <div class="center-orb"></div>
 
-    <div class="track" style="top:25%; left:30%; --c:var(--lavender); --delay:0s"
-         data-name="Свой мир" data-dur="3:42" data-color="linear-gradient(135deg,#B69CFF,#5EE0E0)">
+    <div class="track" style="top:25%; left:30%; --c:var(--lavender); --delay:0s" data-name="Свой мир" data-dur="3:42" data-color="linear-gradient(135deg,#B69CFF,#5EE0E0)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Свой мир</div>
-        <div class="track-meta">3:42 · Главный сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Свой мир</div><div class="track-meta">3:42 · Главный сингл</div></div>
     </div>
 
-    <div class="track" style="top:35%; left:75%; --c:var(--coral); --delay:0.6s"
-         data-name="Стеклянное сердце" data-dur="3:18" data-color="linear-gradient(135deg,#FF7A6B,#B69CFF)">
+    <div class="track" style="top:35%; left:75%; --c:var(--coral); --delay:0.6s" data-name="Стеклянное сердце" data-dur="3:18" data-color="linear-gradient(135deg,#FF7A6B,#B69CFF)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Стеклянное сердце</div>
-        <div class="track-meta">3:18 · Сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Стеклянное сердце</div><div class="track-meta">3:18 · Сингл</div></div>
     </div>
 
-    <div class="track" style="top:70%; left:80%; --c:var(--cyan); --delay:1.2s"
-         data-name="Неоновые молитвы" data-dur="4:05" data-color="linear-gradient(135deg,#5EE0E0,#B69CFF)">
+    <div class="track" style="top:70%; left:80%; --c:var(--cyan); --delay:1.2s" data-name="Неоновые молитвы" data-dur="4:05" data-color="linear-gradient(135deg,#5EE0E0,#B69CFF)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Неоновые молитвы</div>
-        <div class="track-meta">4:05 · Сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Неоновые молитвы</div><div class="track-meta">4:05 · Сингл</div></div>
     </div>
 
-    <div class="track" style="top:80%; left:40%; --c:var(--lavender); --delay:1.8s"
-         data-name="Эхо" data-dur="3:55" data-color="linear-gradient(135deg,#B69CFF,#FF7A6B)">
+    <div class="track" style="top:80%; left:40%; --c:var(--lavender); --delay:1.8s" data-name="Эхо" data-dur="3:55" data-color="linear-gradient(135deg,#B69CFF,#FF7A6B)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Эхо</div>
-        <div class="track-meta">3:55 · Сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Эхо</div><div class="track-meta">3:55 · Сингл</div></div>
     </div>
 
-    <div class="track" style="top:25%; left:65%; --c:var(--coral); --delay:2.4s"
-         data-name="Тихий космос" data-dur="4:22" data-color="linear-gradient(135deg,#FF7A6B,#5EE0E0)">
+    <div class="track" style="top:25%; left:65%; --c:var(--coral); --delay:2.4s" data-name="Тихий космос" data-dur="4:22" data-color="linear-gradient(135deg,#FF7A6B,#5EE0E0)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Тихий космос</div>
-        <div class="track-meta">4:22 · Сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Тихий космос</div><div class="track-meta">4:22 · Сингл</div></div>
     </div>
 
-    <div class="track" style="top:55%; left:20%; --c:var(--cyan); --delay:3s"
-         data-name="Бумажная луна" data-dur="3:33" data-color="linear-gradient(135deg,#5EE0E0,#FF7A6B)">
+    <div class="track" style="top:55%; left:20%; --c:var(--cyan); --delay:3s" data-name="Бумажная луна" data-dur="3:33" data-color="linear-gradient(135deg,#5EE0E0,#FF7A6B)" data-audio="">
       <div class="track-dot"></div>
-      <div class="track-info">
-        <div class="track-name">Бумажная луна</div>
-        <div class="track-meta">3:33 · Сингл</div>
-      </div>
+      <div class="track-info"><div class="track-name">Бумажная луна</div><div class="track-meta">3:33 · Сингл</div></div>
     </div>
   </div>
 </section>
@@ -938,16 +750,13 @@ section { position: relative; padding: 12vh 6vw; }
   </form>
   <div class="contact-info" data-reveal>
     <a href="mailto:booking@annastarness.com" class="contact-link">
-      <span>Букинг</span>
-      booking@annastarness.com
+      <span>Букинг</span> booking@annastarness.com
     </a>
     <a href="#" class="contact-link">
-      <span>Инстаграм</span>
-      @annastarness
+      <span>Инстаграм</span> @annastarness
     </a>
     <a href="#" class="contact-link">
-      <span>Спотифай</span>
-      Слушать
+      <span>Спотифай</span> Слушать
     </a>
   </div>
 </section>
@@ -973,6 +782,9 @@ section { position: relative; padding: 12vh 6vw; }
   </div>
   <button class="player-close" id="playerClose">×</button>
 </div>
+
+<!-- Скрытый аудио-плеер. Если захотите добавить музыку, вставьте ссылку на mp3 в тег audio ниже и в атрибут data-audio к трекам выше -->
+<audio id="myAudio"></audio>
 
 <script>
 /* ============ PRELOADER ============ */
@@ -1041,33 +853,39 @@ document.querySelectorAll('[data-scroll]').forEach(btn => {
   });
 });
 
-/* ============ PLAYER ============ */
+/* ============ PLAYER & AUDIO ============ */
 const player = document.getElementById('player');
 const playerTitle = player.querySelector('.player-title');
 const playerMeta = player.querySelector('.player-meta');
 const playerCover = player.querySelector('.player-cover');
 const playerProgressBar = player.querySelector('.player-progress-bar');
+const audio = document.getElementById('myAudio');
 
 document.querySelectorAll('.track').forEach(track => {
   track.addEventListener('click', () => {
-    // Сброс активного класса у других
     document.querySelectorAll('.track').forEach(t => t.classList.remove('active'));
-    // Добавление активного
     track.classList.add('active');
 
     playerTitle.textContent = track.dataset.name;
     playerMeta.textContent = track.dataset.dur + ' · Сингл';
     playerCover.style.background = track.dataset.color;
     playerProgressBar.style.animation = 'none';
-    void playerProgressBar.offsetWidth; /* Перезапуск анимации */
+    void playerProgressBar.offsetWidth; 
     playerProgressBar.style.animation = 'progressPlay 12s linear infinite';
     player.classList.add('active');
+
+    // Если в data-audio есть ссылка на файл (например, "track1.mp3"), включаем его
+    if (track.dataset.audio) {
+      audio.src = track.dataset.audio;
+      audio.play().catch(e => console.log("Аудио не добавлено"));
+    }
   });
 });
 
 document.getElementById('playerClose').addEventListener('click', () => {
   player.classList.remove('active');
   document.querySelectorAll('.track').forEach(t => t.classList.remove('active'));
+  audio.pause(); // Останавливаем музыку
 });
 
 /* ============ VIDEO PLAY BUTTON ============ */
