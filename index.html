@@ -41,7 +41,6 @@
     </script>
 
     <style>
-        /* Кастомные стили для вайба */
         body {
             background-color: #0a0a0a;
             color: #f5f5f5;
@@ -49,7 +48,6 @@
             overflow-x: hidden;
         }
 
-        /* Плавное появление при скролле */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -60,11 +58,9 @@
             transform: translateY(0);
         }
 
-        /* Скрываем скроллбар в горизонтальной галерее */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Эффект перекрытия текста на фото */
         .text-shadow {
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
@@ -74,15 +70,15 @@
 
     <!-- 1. HERO SECTION -->
     <header class="relative h-[100svh] w-full flex flex-col justify-between overflow-hidden">
-        <!-- Фоновое фото (Замена на images/hero.jpg) -->
-        <img src="https://images.unsplash.com/photo-1558383817-ece747ca945e?q=80&w=1287&auto=format&fit=crop" 
+        <!-- ТВОЕ ФОТО (Мотоцикл) -->
+        <img src="./images/hero.jpg" 
              alt="Anna Starness" 
              class="absolute inset-0 w-full h-full object-cover object-center opacity-80"
              style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
         
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-dark"></div>
 
-        <!-- Верхняя навигация (минимализм) -->
+        <!-- Верхняя навигация -->
         <nav class="relative z-10 flex justify-between items-center p-6 md:p-10 animate-fade-up">
             <span class="text-sm tracking-[0.2em] uppercase font-medium">AS</span>
             <a href="https://vk.ru/annastarness" target="_blank" class="text-xs tracking-widest uppercase hover:text-gray-300 transition-colors">VK</a>
@@ -110,8 +106,8 @@
 
     <!-- 2. MANIFESTO -->
     <section class="relative py-32 md:py-48 px-6 md:px-16 overflow-hidden">
-        <!-- Фоновое фото (Замена на images/manifesto.jpg) -->
-        <img src="https://images.unsplash.com/photo-1478147424007-0a9d95272538?q=80&w=1287&auto=format&fit=crop" 
+        <!-- ТВОЕ ФОТО (Лес) -->
+        <img src="./images/cme3-hpk8Xo.jpg" 
              alt="Atmosphere" 
              class="absolute inset-0 w-full h-full object-cover opacity-20">
         
@@ -132,25 +128,24 @@
         <!-- Горизонтальный скролл -->
         <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-8 px-6 md:px-16 pb-8">
             
-            <!-- Фото 1 (Вода) -->
+            <!-- ТВОЕ ФОТО (Вода) -->
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1470&auto=format&fit=crop" 
+                <img src="./images/XhTxFl6uBys.jpg" 
                      alt="Ether" 
                      class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
-            <!-- Фото 2 (Диван) -->
+            <!-- ТВОЕ ФОТО (Диван) -->
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal" style="transition-delay: 200ms;">
-                <img src="https://images.unsplash.com/photo-1516280440502-863c5087449a?q=80&w=1470&auto=format&fit=crop" 
+                <img src="./images/uyqD81nYnX8.jpg" 
                      alt="Fire" 
                      class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
 
-            <!-- Пустой блок для отступа в конце -->
             <div class="min-w-[1px] md:min-w-[5vw]"></div>
         </div>
     </section>
@@ -224,45 +219,33 @@
         </a>
     </div>
 
-    <!-- JavaScript: Анимации и поведение -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Intersection Observer для появления элементов (Reveal)
             const revealElements = document.querySelectorAll('.reveal');
-            
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Опционально: отключить наблюдение после появления
-                        // revealObserver.unobserve(entry.target); 
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
-
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // 2. Умная липкая кнопка (появляется, когда Hero уходит из вида)
             const stickyBtn = document.getElementById('sticky-cta');
             const heroSection = document.querySelector('header');
 
             const heroObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
-                        // Hero скрылся -> показываем кнопку
                         stickyBtn.classList.remove('translate-y-32', 'opacity-0');
                         stickyBtn.classList.add('translate-y-0', 'opacity-100');
                     } else {
-                        // Hero вернулся -> прячем кнопку
                         stickyBtn.classList.add('translate-y-32', 'opacity-0');
                         stickyBtn.classList.remove('translate-y-0', 'opacity-100');
                     }
                 });
-            }, { threshold: 0.1 }); // Срабатывает, когда видно 10% Hero
+            }, { threshold: 0.1 });
 
             heroObserver.observe(heroSection);
         });
