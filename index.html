@@ -105,18 +105,18 @@
 
         /* 3. Плавающий туман (Боке) */
         @keyframes fogMove {
-            0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-            50% { transform: translate(-5%, 5%) scale(1.1); opacity: 0.3; }
-            100% { transform: translate(5%, -5%) scale(1); opacity: 0.1; }
+            0% { transform: translate(0, 0) scale(1); opacity: 0.05; }
+            50% { transform: translate(-5%, 5%) scale(1.1); opacity: 0.15; }
+            100% { transform: translate(5%, -5%) scale(1); opacity: 0.05; }
         }
         .fog-layer {
             position: absolute;
             width: 150%; height: 150%;
             top: -25%; left: -25%;
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, transparent 60%);
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.6) 0%, transparent 60%);
             filter: blur(40px);
             pointer-events: none;
-            animation: fogMove 20s ease-in-out infinite alternate;
+            animation: fogMove 25s ease-in-out infinite alternate;
             mix-blend-mode: overlay;
         }
 
@@ -159,6 +159,17 @@
         }
         .dim-on-play {
             transition: opacity 1s ease;
+        }
+
+        /* Исправление яркости: легкий цветной оттенок вместо вспышки */
+        .gallery-item .tint-overlay {
+            transition: background-color 0.8s ease;
+        }
+        .gallery-item.ether-active .tint-overlay {
+            background-color: rgba(74, 107, 124, 0.2); /* Холодный оттенок */
+        }
+        .gallery-item.fire-active .tint-overlay {
+            background-color: rgba(168, 68, 34, 0.2); /* Тёплый оттенок */
         }
     </style>
 </head>
@@ -204,13 +215,11 @@
 
     <!-- 2. MANIFESTO -->
     <section class="relative py-32 md:py-48 px-6 md:px-16 overflow-hidden">
-        <!-- ТВОЕ ФОТО (Лес) с кино-зумом -->
         <div class="absolute inset-0 overflow-hidden">
             <img src="https://i.postimg.cc/659qMvx2/forest.jpg" 
                  alt="Тёмный лес в тумане" 
                  class="w-full h-full object-cover opacity-30 kenburns">
         </div>
-        <!-- Плавающий туман -->
         <div class="fog-layer"></div>
         
         <div class="relative z-10 max-w-4xl mx-auto text-center">
@@ -221,7 +230,7 @@
         </div>
     </section>
 
-    <!-- 3. VISUALS / MOODS (Интерактив) -->
+    <!-- 3. VISUALS / MOODS (Исправленный интерактив) -->
     <section class="py-20 md:py-32 overflow-hidden">
         <div class="px-6 md:px-16 mb-12 reveal">
             <h2 class="text-xs tracking-[0.2em] uppercase text-gray-400">Эстетика</h2>
@@ -230,18 +239,19 @@
         <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-8 px-6 md:px-16 pb-8">
             
             <!-- ЭФИР (Холодный свет) -->
-            <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer" 
-                 onclick="setTheme('ether')">
+            <div class="gallery-item relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer rounded-sm" 
+                 onclick="setTheme('ether', this)">
                 <img src="https://i.postimg.cc/Hspn6y18/water.jpg" alt="Эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-700"></div>
+                <!-- Темный слой (не исчезает полностью) + цветной оттенок -->
+                <div class="absolute inset-0 bg-black/30 tint-overlay"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
             <!-- ОГОНЬ (Тёплый свет) -->
-            <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer" 
-                 style="transition-delay: 200ms;" onclick="setTheme('fire')">
+            <div class="gallery-item relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer rounded-sm" 
+                 style="transition-delay: 200ms;" onclick="setTheme('fire', this)">
                 <img src="https://i.postimg.cc/QxXCfTZ7/couch.jpg" alt="Эстетика «Огонь»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-700"></div>
+                <div class="absolute inset-0 bg-black/30 tint-overlay"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
 
@@ -378,18 +388,25 @@
 
     <!-- JavaScript -->
     <script>
-        // Функция смены "температуры" сайта
-        function setTheme(theme) {
+        // Обновленная функция смены "температуры" и подсветки активной карточки
+        function setTheme(theme, element) {
             document.body.classList.remove('theme-ether', 'theme-fire');
+            
+            // Снимаем активный класс со всех карточек галереи
+            document.querySelectorAll('.gallery-item').forEach(el => {
+                el.classList.remove('ether-active', 'fire-active');
+            });
+
             if (theme === 'ether') {
                 document.body.classList.add('theme-ether');
+                element.classList.add('ether-active');
             } else if (theme === 'fire') {
                 document.body.classList.add('theme-fire');
+                element.classList.add('fire-active');
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Анимации появления (Blur to sharp)
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -398,7 +415,6 @@
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // 2. Липкая кнопка
             const stickyBtn = document.getElementById('sticky-cta');
             const heroSection = document.querySelector('header');
             const heroObserver = new IntersectionObserver((entries) => {
@@ -414,7 +430,6 @@
             }, { threshold: 0.1 });
             heroObserver.observe(heroSection);
 
-            // 3. Плеер и аудио-реактивность
             const playBtns = document.querySelectorAll('.play-btn');
             const audios = document.querySelectorAll('audio');
             const body = document.body;
@@ -437,7 +452,6 @@
                 const durationDisplay = trackContainer.querySelector('.duration');
 
                 btn.addEventListener('click', () => {
-                    // Пауза всех остальных
                     audios.forEach(a => {
                         if (a !== audio) {
                             a.pause();
@@ -448,12 +462,11 @@
                         }
                     });
 
-                    // Управление текущим
                     if (audio.paused) {
                         audio.play();
                         btn.classList.add('is-playing');
                         trackContainer.classList.add('is-playing');
-                        body.classList.add('audio-playing'); // Затемняет фон
+                        body.classList.add('audio-playing'); 
                     } else {
                         audio.pause();
                         btn.classList.remove('is-playing');
@@ -462,7 +475,6 @@
                     }
                 });
 
-                // Конец трека
                 audio.addEventListener('ended', () => {
                     btn.classList.remove('is-playing');
                     trackContainer.classList.remove('is-playing');
