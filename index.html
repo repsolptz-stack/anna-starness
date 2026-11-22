@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anna Starness — Песни</title>
-    <meta name="description" content="Официальная страница Anna Starness. Песни о том, что скрыто за кадром.">
+    <title>ANNA Starness — песни о том, что скрыто за кадром</title>
+    <meta name="description" content="Музыкальный проект ANNA Starness: треки «Безупречная любовь», «Милфы в толпе», «Конверты», настроение и прямой переход на стриминги.">
+
+    <!-- OpenGraph / Превью для соцсетей -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="ANNA Starness — песни о том, что скрыто за кадром">
+    <meta property="og:description" content="Настроение, в котором остаёшься наедине с собой. Слушайте треки на странице или на стриминговых площадках.">
+    <meta property="og:url" content="https://repsolptz-stack.github.io/anna-starness/">
+    <meta property="og:image" content="https://repsolptz-stack.github.io/anna-starness/images/hero.jpg">
     
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +83,7 @@
     <!-- 1. HERO SECTION -->
     <header class="relative h-[100svh] w-full flex flex-col justify-between overflow-hidden">
         <img src="./images/hero.jpg" 
-             alt="Anna Starness" 
+             alt="Атмосферный портрет ANNA Starness" 
              class="absolute inset-0 w-full h-full object-cover object-center opacity-80"
              style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
         
@@ -83,7 +91,7 @@
 
         <nav class="relative z-10 flex justify-between items-center p-6 md:p-10 animate-fade-up">
             <span class="text-sm tracking-[0.2em] uppercase font-medium">AS</span>
-            <a href="https://vk.ru/annastarness" target="_blank" class="text-xs tracking-widest uppercase hover:text-gray-300 transition-colors">VK</a>
+            <a href="https://vk.ru/annastarness" target="_blank" rel="noopener noreferrer" class="text-xs tracking-widest uppercase hover:text-gray-300 transition-colors">VK</a>
         </nav>
 
         <div class="relative z-10 px-6 pb-24 md:pb-32 md:px-16 flex flex-col items-start w-full max-w-7xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
@@ -107,7 +115,7 @@
     <!-- 2. MANIFESTO -->
     <section class="relative py-32 md:py-48 px-6 md:px-16 overflow-hidden">
         <img src="./images/forest.jpg" 
-             alt="Atmosphere" 
+             alt="Тёмный лес в тумане — настроение треков ANNA Starness" 
              class="absolute inset-0 w-full h-full object-cover opacity-20">
         
         <div class="relative z-10 max-w-4xl mx-auto text-center">
@@ -126,13 +134,13 @@
         
         <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-8 px-6 md:px-16 pb-8">
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal">
-                <img src="./images/water.jpg" alt="Ether" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="./images/water.jpg" alt="Тёмная вода — эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal" style="transition-delay: 200ms;">
-                <img src="./images/couch.jpg" alt="Fire" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="./images/couch.jpg" alt="Приглушённый свет в интерьере — эстетика «Огонь»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
@@ -151,54 +159,57 @@
         <div class="flex flex-col gap-2">
             
             <!-- ТРЕК 1 (Безупречная любовь) -->
-            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+            <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
-                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track1">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track1" aria-label="Воспроизвести Безупречная любовь">
                         <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                     </button>
                     <div>
                         <h3 class="text-lg md:text-2xl font-light">Безупречная любовь</h3>
-                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                        <p class="mt-1 text-xs md:text-sm text-gray-400 font-light">Тихий пульс близости и честность без лишних слов.</p>
+                        <span class="mt-1.5 inline-block text-xs text-gray-500 font-mono">MP3</span>
                     </div>
                 </div>
-                <a href="./audio/track1.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                <a href="./audio/track1.mp3" download aria-label="Скачать Безупречная любовь" class="p-3 shrink-0 text-gray-500 hover:text-light transition-colors">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 </a>
                 <audio id="audio-track1" src="./audio/track1.mp3" preload="none"></audio>
             </div>
 
-            <!-- ТРЕК 2 (Заглушка) -->
-            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+            <!-- ТРЕК 2 (Милфы в толпе) -->
+            <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
-                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track2">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track2" aria-label="Воспроизвести Милфы в толпе">
                         <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                     </button>
                     <div>
-                        <h3 class="text-lg md:text-2xl font-light">Милфы втолпе</h3>
-                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                        <h3 class="text-lg md:text-2xl font-light">Милфы в толпе</h3>
+                        <p class="mt-1 text-xs md:text-sm text-gray-400 font-light">Дерзкий взгляд сквозь шум и чужие сценарии.</p>
+                        <span class="mt-1.5 inline-block text-xs text-gray-500 font-mono">MP3</span>
                     </div>
                 </div>
-                <a href="./audio/track2.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                <a href="./audio/track2.mp3" download aria-label="Скачать Милфы в толпе" class="p-3 shrink-0 text-gray-500 hover:text-light transition-colors">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 </a>
                 <audio id="audio-track2" src="./audio/track2.mp3" preload="none"></audio>
             </div>
 
-            <!-- ТРЕК 3 (Заглушка) -->
-            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+            <!-- ТРЕК 3 (Конверты) -->
+            <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
-                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track3">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track3" aria-label="Воспроизвести Конверты">
                         <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                     </button>
                     <div>
                         <h3 class="text-lg md:text-2xl font-light">Конверты</h3>
-                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                        <p class="mt-1 text-xs md:text-sm text-gray-400 font-light">Неотправленные письма и мысли, которые остаются до утра.</p>
+                        <span class="mt-1.5 inline-block text-xs text-gray-500 font-mono">MP3</span>
                     </div>
                 </div>
-                <a href="./audio/track3.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                <a href="./audio/track3.mp3" download aria-label="Скачать Конверты" class="p-3 shrink-0 text-gray-500 hover:text-light transition-colors">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 </a>
                 <audio id="audio-track3" src="./audio/track3.mp3" preload="none"></audio>
@@ -207,7 +218,7 @@
         </div>
 
         <div class="mt-16 text-center reveal">
-            <a href="https://band.link/02z6v" target="_blank" class="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase border-b border-light pb-1 hover:text-gray-400 hover:border-gray-400 transition-all">
+            <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase border-b border-light pb-1 hover:text-gray-400 hover:border-gray-400 transition-all">
                 Слушать на всех платформах
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
@@ -217,19 +228,20 @@
     <!-- 5. FOOTER -->
     <footer class="py-16 md:py-24 px-6 border-t border-white/5 mt-10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="reveal flex gap-8 text-sm tracking-widest uppercase text-gray-400">
-                <a href="https://vk.ru/annastarness" target="_blank" class="hover:text-light transition-colors">VK</a>
-                <a href="https://band.link/02z6v" target="_blank" class="hover:text-light transition-colors">Bandlink</a>
+            <div class="reveal flex flex-wrap justify-center gap-8 text-sm tracking-widest uppercase text-gray-400">
+                <a href="https://vk.ru/annastarness" target="_blank" rel="noopener noreferrer" class="hover:text-light transition-colors">VK</a>
+                <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer" class="hover:text-light transition-colors">Bandlink</a>
+                <a href="mailto:hello@annastarness.ru" class="hover:text-light transition-colors">Контакты</a>
             </div>
             <div class="reveal text-xs text-gray-600 tracking-wider">
-                &copy; 2024 ANNA STARNESS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
+                &copy; 2024–2026 ANNA STARNESS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
             </div>
         </div>
     </footer>
 
     <!-- ЛИПКАЯ КНОПКА -->
     <div id="sticky-cta" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-sm z-50 translate-y-32 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        <a href="https://band.link/02z6v" target="_blank" 
+        <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer"
            class="flex items-center justify-center gap-3 w-full bg-light text-dark py-4 rounded-full font-medium tracking-widest uppercase text-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)] active:scale-95 transition-transform">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 5v14l11-7z"/>
