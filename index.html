@@ -44,16 +44,19 @@
             --theme-accent: #8a1c24;
             --theme-glow: rgba(138, 28, 36, 0.7);
             --theme-story-tint: rgba(138, 28, 36, 0.22);
+            --theme-ambient: transparent;
         }
         body.theme-ether {
-            --theme-accent: #4a6b7c;
-            --theme-glow: rgba(74, 107, 124, 0.8);
-            --theme-story-tint: rgba(74, 107, 124, 0.25);
+            --theme-accent: #5b859c;
+            --theme-glow: rgba(91, 133, 156, 0.75);
+            --theme-story-tint: rgba(91, 133, 156, 0.25);
+            --theme-ambient: rgba(91, 133, 156, 0.16);
         }
         body.theme-fire {
-            --theme-accent: #a84422;
-            --theme-glow: rgba(168, 68, 34, 0.8);
-            --theme-story-tint: rgba(168, 68, 34, 0.25);
+            --theme-accent: #b84a27;
+            --theme-glow: rgba(184, 74, 39, 0.75);
+            --theme-story-tint: rgba(184, 74, 39, 0.25);
+            --theme-ambient: rgba(184, 74, 39, 0.16);
         }
 
         body {
@@ -62,6 +65,21 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             transition: background-color 1s ease;
+        }
+
+        /* Глобальный световой слой настроения по всей странице */
+        .mood-ambient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 1.1s ease, background 1.1s ease;
+            background: radial-gradient(circle at 50% 30%, var(--theme-ambient, transparent) 0%, transparent 72%);
+        }
+        body.theme-ether .mood-ambient,
+        body.theme-fire .mood-ambient {
+            opacity: 1;
         }
 
         /* Плёночное зерно и виньетка */
@@ -153,10 +171,19 @@
             transition: width 0.1s linear, background-color 0.5s ease;
         }
 
-        /* Оттенки для галереи */
-        .gallery-item .tint-overlay { transition: background-color 0.8s ease; }
-        .gallery-item.ether-active .tint-overlay { background-color: rgba(74, 107, 124, 0.2); }
-        .gallery-item.fire-active .tint-overlay { background-color: rgba(168, 68, 34, 0.2); }
+        /* Карточки эстетики: фото остаётся глубоким, свет идёт в рамку и ореол */
+        .gallery-item {
+            transition: transform 0.6s ease, box-shadow 0.9s ease, border-color 0.9s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gallery-item.ether-active {
+            box-shadow: 0 0 40px rgba(91, 133, 156, 0.28);
+            border-color: rgba(91, 133, 156, 0.45);
+        }
+        .gallery-item.fire-active {
+            box-shadow: 0 0 40px rgba(184, 74, 39, 0.28);
+            border-color: rgba(184, 74, 39, 0.45);
+        }
 
         /* Кинематографичный HUD (Видоискатель) */
         .hud-corner {
@@ -181,9 +208,10 @@
 </head>
 <body class="antialiased font-sans selection:bg-light selection:text-dark">
 
-    <!-- Плёночное зерно и виньетка -->
+    <!-- Плёночное зерно, виньетка и общий световой слой -->
     <div class="film-grain"></div>
     <div class="vignette"></div>
+    <div class="mood-ambient"></div>
 
     <!-- Фиксированный индикатор REC и таймкод -->
     <div class="fixed top-5 left-1/2 -translate-x-1/2 z-40 pointer-events-none flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-white/45 bg-black/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10">
@@ -265,7 +293,7 @@
             <div class="gallery-item relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer rounded-sm" 
                  onclick="setTheme('ether', this)">
                 <img src="https://i.postimg.cc/Hspn6y18/water.jpg" alt="Эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/30 tint-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent pointer-events-none"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
@@ -273,7 +301,7 @@
             <div class="gallery-item relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer rounded-sm" 
                  style="transition-delay: 200ms;" onclick="setTheme('fire', this)">
                 <img src="https://i.postimg.cc/QxXCfTZ7/couch.jpg" alt="Эстетика «Огонь»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-black/30 tint-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent pointer-events-none"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
 
