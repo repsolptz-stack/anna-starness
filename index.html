@@ -12,7 +12,8 @@
     <meta property="og:title" content="ANNA Starness — песни о том, что скрыто за кадром">
     <meta property="og:description" content="Настроение, в котором остаёшься наедине с собой. Слушайте треки на странице или на стриминговых площадках.">
     <meta property="og:url" content="https://repsolptz-stack.github.io/anna-starness/">
-    <meta property="og:image" content="https://repsolptz-stack.github.io/anna-starness/images/hero.jpg">
+    <!-- Сюда потом вставишь ссылку на свое главное фото -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1558383817-ece747ca945e?q=80&w=1287&auto=format&fit=crop">
     
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,10 +83,12 @@
 
     <!-- 1. HERO SECTION -->
     <header class="relative h-[100svh] w-full flex flex-col justify-between overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1558383817-ece747ca945e?q=80&w=1287&auto=format&fit=crop" 
-     alt="Атмосферный портрет ANNA Starness" 
-     class="absolute inset-0 w-full h-full object-cover object-center opacity-80"
-     style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100% &v=2);">
+        <!-- Временное фото с Unsplash (потом заменишь на ссылку своего фото) -->
+        <img src="https://images.unsplash.com/photo-1558383817-ece747ca945e?q=80&w=1287&auto=format&fit=crop&v=2" 
+             alt="Атмосферный портрет ANNA Starness" 
+             class="absolute inset-0 w-full h-full object-cover object-center opacity-80"
+             style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
+        
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-dark"></div>
 
         <nav class="relative z-10 flex justify-between items-center p-6 md:p-10 animate-fade-up">
@@ -113,8 +116,8 @@
 
     <!-- 2. MANIFESTO -->
     <section class="relative py-32 md:py-48 px-6 md:px-16 overflow-hidden">
-        <img src="./images/forest.jpg" 
-             alt="Тёмный лес в тумане — настроение треков ANNA Starness" 
+        <img src="https://images.unsplash.com/photo-1478147424007-0a9d95272538?q=80&w=1287&auto=format&fit=crop&v=2" 
+             alt="Тёмный лес в тумане" 
              class="absolute inset-0 w-full h-full object-cover opacity-20">
         
         <div class="relative z-10 max-w-4xl mx-auto text-center">
@@ -133,13 +136,13 @@
         
         <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-8 px-6 md:px-16 pb-8">
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal">
-                <img src="./images/water.jpg" alt="Тёмная вода — эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1470&auto=format&fit=crop&v=2" alt="Эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal" style="transition-delay: 200ms;">
-                <img src="./images/couch.jpg" alt="Приглушённый свет в интерьере — эстетика «Огонь»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1516280440502-863c5087449a?q=80&w=1470&auto=format&fit=crop&v=2" alt="Эстетика «Огонь»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
@@ -157,7 +160,7 @@
 
         <div class="flex flex-col gap-2">
             
-            <!-- ТРЕК 1 (Безупречная любовь) -->
+            <!-- ТРЕК 1 -->
             <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
                     <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track1" aria-label="Воспроизвести Безупречная любовь">
@@ -176,7 +179,7 @@
                 <audio id="audio-track1" src="./audio/track1.mp3" preload="none"></audio>
             </div>
 
-            <!-- ТРЕК 2 (Милфы в толпе) -->
+            <!-- ТРЕК 2 -->
             <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
                     <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track2" aria-label="Воспроизвести Милфы в толпе">
@@ -195,7 +198,7 @@
                 <audio id="audio-track2" src="./audio/track2.mp3" preload="none"></audio>
             </div>
 
-            <!-- ТРЕК 3 (Конверты) -->
+            <!-- ТРЕК 3 -->
             <div class="reveal group flex items-center justify-between gap-4 py-6 border-b border-white/10 hover:border-white/30 transition-colors">
                 <div class="flex items-center gap-4 md:gap-6">
                     <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track3" aria-label="Воспроизвести Конверты">
@@ -277,7 +280,7 @@
             }, { threshold: 0.1 });
             heroObserver.observe(heroSection);
 
-            // 3. Логика аудиоплеера (чтобы играл только один трек)
+            // 3. Логика аудиоплеера
             const playBtns = document.querySelectorAll('.play-btn');
             const audios = document.querySelectorAll('audio');
 
@@ -286,7 +289,6 @@
                     const audioId = btn.getAttribute('data-audio');
                     const audio = document.getElementById(`audio-${audioId}`);
                     
-                    // Ставим на паузу все остальные треки
                     audios.forEach(a => {
                         if (a !== audio) {
                             a.pause();
@@ -296,7 +298,6 @@
                         }
                     });
 
-                    // Включаем/выключаем текущий
                     if (audio.paused) {
                         audio.play();
                         btn.classList.add('is-playing');
@@ -306,7 +307,6 @@
                     }
                 });
 
-                // Когда трек заканчивается, возвращаем иконку Play
                 const audioId = btn.getAttribute('data-audio');
                 const audio = document.getElementById(`audio-${audioId}`);
                 audio.addEventListener('ended', () => {
