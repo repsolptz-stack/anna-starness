@@ -42,15 +42,15 @@
         /* Базовые цвета и переменные для интерактива Эфир/Огонь */
         :root {
             --theme-accent: #8a1c24; /* Винный по умолчанию */
-            --theme-glow: rgba(138, 28, 36, 0.4);
+            --theme-glow: rgba(138, 28, 36, 0.7); /* Увеличена яркость свечения */
         }
         body.theme-ether {
             --theme-accent: #4a6b7c; /* Лунно-дымчатый */
-            --theme-glow: rgba(74, 107, 124, 0.5);
+            --theme-glow: rgba(74, 107, 124, 0.8);
         }
         body.theme-fire {
             --theme-accent: #a84422; /* Янтарно-бордовый */
-            --theme-glow: rgba(168, 68, 34, 0.5);
+            --theme-glow: rgba(168, 68, 34, 0.8);
         }
 
         body {
@@ -120,19 +120,19 @@
             mix-blend-mode: overlay;
         }
 
-        /* 4. Аудио-реактивное свечение */
+        /* 4. Аудио-реактивное свечение (Усиленное) */
         .audio-card {
             transition: box-shadow 1s ease, background-color 0.5s ease;
             border-radius: 12px;
         }
         .audio-card.is-playing {
-            box-shadow: 0 0 30px var(--theme-glow);
-            background-color: rgba(255,255,255,0.02);
+            box-shadow: 0 0 30px var(--theme-glow), inset 0 0 15px var(--theme-glow);
+            background-color: rgba(255,255,255,0.03);
         }
         @keyframes softPulse {
-            0% { box-shadow: 0 0 20px var(--theme-glow); }
-            50% { box-shadow: 0 0 45px var(--theme-glow); }
-            100% { box-shadow: 0 0 20px var(--theme-glow); }
+            0% { box-shadow: 0 0 25px var(--theme-glow), inset 0 0 10px var(--theme-glow); }
+            50% { box-shadow: 0 0 60px var(--theme-glow), inset 0 0 20px var(--theme-glow); }
+            100% { box-shadow: 0 0 25px var(--theme-glow), inset 0 0 10px var(--theme-glow); }
         }
         .audio-card.is-playing {
             animation: softPulse 3s infinite ease-in-out;
@@ -148,7 +148,7 @@
         }
         .progress-bar {
             background-color: var(--theme-accent);
-            box-shadow: 0 0 8px var(--theme-accent);
+            box-shadow: 0 0 10px var(--theme-accent); /* Ярче */
             transition: width 0.1s linear, background-color 0.5s ease;
         }
 
@@ -166,10 +166,10 @@
             transition: background-color 0.8s ease;
         }
         .gallery-item.ether-active .tint-overlay {
-            background-color: rgba(74, 107, 124, 0.2); /* Холодный оттенок */
+            background-color: rgba(74, 107, 124, 0.2);
         }
         .gallery-item.fire-active .tint-overlay {
-            background-color: rgba(168, 68, 34, 0.2); /* Тёплый оттенок */
+            background-color: rgba(168, 68, 34, 0.2);
         }
     </style>
 </head>
@@ -230,7 +230,7 @@
         </div>
     </section>
 
-    <!-- 3. VISUALS / MOODS (Исправленный интерактив) -->
+    <!-- 3. VISUALS / MOODS (Интерактив) -->
     <section class="py-20 md:py-32 overflow-hidden">
         <div class="px-6 md:px-16 mb-12 reveal">
             <h2 class="text-xs tracking-[0.2em] uppercase text-gray-400">Эстетика</h2>
@@ -242,7 +242,6 @@
             <div class="gallery-item relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal cursor-pointer rounded-sm" 
                  onclick="setTheme('ether', this)">
                 <img src="https://i.postimg.cc/Hspn6y18/water.jpg" alt="Эстетика «Эфир»" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
-                <!-- Темный слой (не исчезает полностью) + цветной оттенок -->
                 <div class="absolute inset-0 bg-black/30 tint-overlay"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
@@ -388,11 +387,9 @@
 
     <!-- JavaScript -->
     <script>
-        // Обновленная функция смены "температуры" и подсветки активной карточки
         function setTheme(theme, element) {
             document.body.classList.remove('theme-ether', 'theme-fire');
             
-            // Снимаем активный класс со всех карточек галереи
             document.querySelectorAll('.gallery-item').forEach(el => {
                 el.classList.remove('ether-active', 'fire-active');
             });
