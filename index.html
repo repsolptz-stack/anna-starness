@@ -28,7 +28,7 @@
                     colors: {
                         dark: '#0a0a0a',
                         light: '#f5f5f5',
-                        accent: '#8a1c24', // Тот самый винный цвет
+                        accent: '#8a1c24',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -77,7 +77,6 @@
         .play-btn.is-playing .play-icon { display: none; }
         .play-btn.is-playing .pause-icon { display: block; }
 
-        /* Стили для линии прогресса */
         .progress-container {
             -webkit-tap-highlight-color: transparent;
         }
@@ -157,11 +156,10 @@
         </div>
     </section>
 
-    <!-- 4. TRACKS (ОБНОВЛЕННЫЙ ПЛЕЕР) -->
+    <!-- 4. TRACKS -->
     <section class="py-24 md:py-32 px-6 md:px-16 max-w-4xl mx-auto">
         <div class="reveal flex justify-between items-end mb-16 border-b border-white/10 pb-6">
             <h2 class="font-serif text-4xl md:text-5xl">Треки</h2>
-            <!-- Год 2024 удален отсюда -->
         </div>
 
         <div class="flex flex-col gap-2">
@@ -183,7 +181,6 @@
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     </a>
                 </div>
-                <!-- Линия прогресса и таймкоды -->
                 <div class="flex items-center gap-3 mt-4 w-full">
                     <span class="text-[10px] text-gray-500 font-mono current-time w-8">0:00</span>
                     <div class="progress-container flex-1 h-1 bg-white/10 cursor-pointer relative">
@@ -251,7 +248,8 @@
         </div>
 
         <div class="mt-16 text-center reveal">
-            <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase border-b border-light pb-1 hover:text-gray-400 hover:border-gray-400 transition-all">
+            <!-- ССЫЛКА ОБНОВЛЕНА ЗДЕСЬ -->
+            <a href="https://band.link/gho4i" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase border-b border-light pb-1 hover:text-gray-400 hover:border-gray-400 transition-all">
                 Слушать на всех платформах
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
@@ -263,7 +261,8 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="reveal flex flex-wrap justify-center gap-8 text-sm tracking-widest uppercase text-gray-400">
                 <a href="https://vk.ru/annastarness" target="_blank" rel="noopener noreferrer" class="hover:text-light transition-colors">VK</a>
-                <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer" class="hover:text-light transition-colors">Bandlink</a>
+                <!-- ССЫЛКА ОБНОВЛЕНА ЗДЕСЬ -->
+                <a href="https://band.link/gho4i" target="_blank" rel="noopener noreferrer" class="hover:text-light transition-colors">Bandlink</a>
                 <a href="mailto:hello@annastarness.ru" class="hover:text-light transition-colors">Контакты</a>
             </div>
             <div class="reveal text-xs text-gray-600 tracking-wider">
@@ -274,7 +273,8 @@
 
     <!-- ЛИПКАЯ КНОПКА -->
     <div id="sticky-cta" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-sm z-50 translate-y-32 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        <a href="https://band.link/02z6v" target="_blank" rel="noopener noreferrer"
+        <!-- ССЫЛКА ОБНОВЛЕНА ЗДЕСЬ -->
+        <a href="https://band.link/gho4i" target="_blank" rel="noopener noreferrer"
            class="flex items-center justify-center gap-3 w-full bg-light text-dark py-4 rounded-full font-medium tracking-widest uppercase text-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)] active:scale-95 transition-transform">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 5v14l11-7z"/>
@@ -315,7 +315,6 @@
             const playBtns = document.querySelectorAll('.play-btn');
             const audios = document.querySelectorAll('audio');
 
-            // Функция для форматирования времени (например, 125 сек -> 2:05)
             const formatTime = (seconds) => {
                 if (isNaN(seconds)) return "0:00";
                 const mins = Math.floor(seconds / 60);
@@ -327,14 +326,12 @@
                 const audioId = btn.getAttribute('data-audio');
                 const audio = document.getElementById(`audio-${audioId}`);
                 
-                // Находим элементы прогресс-бара для конкретного трека
                 const trackContainer = btn.closest('.reveal');
                 const progressContainer = trackContainer.querySelector('.progress-container');
                 const progressBar = trackContainer.querySelector('.progress-bar');
                 const timeDisplay = trackContainer.querySelector('.current-time');
                 const durationDisplay = trackContainer.querySelector('.duration');
 
-                // Клик по Play/Pause
                 btn.addEventListener('click', () => {
                     audios.forEach(a => {
                         if (a !== audio) {
@@ -353,26 +350,22 @@
                     }
                 });
 
-                // Когда трек заканчивается
                 audio.addEventListener('ended', () => {
                     btn.classList.remove('is-playing');
                     progressBar.style.width = '0%';
                     timeDisplay.textContent = '0:00';
                 });
 
-                // Обновление длительности при загрузке
                 audio.addEventListener('loadedmetadata', () => {
                     durationDisplay.textContent = formatTime(audio.duration);
                 });
 
-                // Движение линии прогресса и времени
                 audio.addEventListener('timeupdate', () => {
                     const percent = (audio.currentTime / audio.duration) * 100;
                     progressBar.style.width = `${percent}%`;
                     timeDisplay.textContent = formatTime(audio.currentTime);
                 });
 
-                // Перемотка при клике на линию
                 progressContainer.addEventListener('click', (e) => {
                     const rect = progressContainer.getBoundingClientRect();
                     const pos = (e.clientX - rect.left) / rect.width;
