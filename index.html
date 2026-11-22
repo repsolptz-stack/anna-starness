@@ -64,13 +64,16 @@
         .text-shadow {
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
+
+        .play-btn .pause-icon { display: none; }
+        .play-btn.is-playing .play-icon { display: none; }
+        .play-btn.is-playing .pause-icon { display: block; }
     </style>
 </head>
 <body class="antialiased font-sans selection:bg-light selection:text-dark">
 
     <!-- 1. HERO SECTION -->
     <header class="relative h-[100svh] w-full flex flex-col justify-between overflow-hidden">
-        <!-- ФОТО 1: Мотоцикл -->
         <img src="./images/hero.jpg" 
              alt="Anna Starness" 
              class="absolute inset-0 w-full h-full object-cover object-center opacity-80"
@@ -78,13 +81,11 @@
         
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-dark"></div>
 
-        <!-- Верхняя навигация -->
         <nav class="relative z-10 flex justify-between items-center p-6 md:p-10 animate-fade-up">
             <span class="text-sm tracking-[0.2em] uppercase font-medium">AS</span>
             <a href="https://vk.ru/annastarness" target="_blank" class="text-xs tracking-widest uppercase hover:text-gray-300 transition-colors">VK</a>
         </nav>
 
-        <!-- Главный заголовок -->
         <div class="relative z-10 px-6 pb-24 md:pb-32 md:px-16 flex flex-col items-start w-full max-w-7xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
             <h1 class="font-serif text-[15vw] md:text-[9vw] leading-[0.85] tracking-tighter text-light text-shadow">
                 ANNA<br>
@@ -95,7 +96,6 @@
             </p>
         </div>
 
-        <!-- Стрелка вниз -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce opacity-70">
             <span class="text-[10px] tracking-widest uppercase">Скролл</span>
             <svg width="1" height="30" viewBox="0 0 1 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,6 @@
 
     <!-- 2. MANIFESTO -->
     <section class="relative py-32 md:py-48 px-6 md:px-16 overflow-hidden">
-        <!-- ФОТО 2: Лес -->
         <img src="./images/forest.jpg" 
              alt="Atmosphere" 
              class="absolute inset-0 w-full h-full object-cover opacity-20">
@@ -119,29 +118,21 @@
         </div>
     </section>
 
-    <!-- 3. VISUALS / MOODS (Галерея) -->
+    <!-- 3. VISUALS / MOODS -->
     <section class="py-20 md:py-32 overflow-hidden">
         <div class="px-6 md:px-16 mb-12 reveal">
             <h2 class="text-xs tracking-[0.2em] uppercase text-gray-400">Эстетика</h2>
         </div>
         
-        <!-- Горизонтальный скролл -->
         <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:gap-8 px-6 md:px-16 pb-8">
-            
-            <!-- ФОТО 3: Вода -->
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal">
-                <img src="./images/water.jpg" 
-                     alt="Ether" 
-                     class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="./images/water.jpg" alt="Ether" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Эфир</span>
             </div>
 
-            <!-- ФОТО 4: Диван -->
             <div class="relative min-w-[85vw] md:min-w-[40vw] h-[60vh] md:h-[75vh] snap-center group overflow-hidden reveal" style="transition-delay: 200ms;">
-                <img src="./images/couch.jpg" 
-                     alt="Fire" 
-                     class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
+                <img src="./images/couch.jpg" alt="Fire" class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
                 <span class="absolute bottom-6 left-6 font-serif text-3xl italic text-light">Огонь</span>
             </div>
@@ -150,7 +141,7 @@
         </div>
     </section>
 
-    <!-- 4. TRACKS (Ядро оффера) -->
+    <!-- 4. TRACKS (С ПЛЕЕРОМ И СКАЧИВАНИЕМ) -->
     <section class="py-24 md:py-32 px-6 md:px-16 max-w-4xl mx-auto">
         <div class="reveal flex justify-between items-end mb-16 border-b border-white/10 pb-6">
             <h2 class="font-serif text-4xl md:text-5xl">Треки</h2>
@@ -158,32 +149,61 @@
         </div>
 
         <div class="flex flex-col gap-2">
-            <!-- Трек 1 -->
-            <a href="https://band.link/02z6v" target="_blank" class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
-                <div class="flex items-center gap-6">
-                    <span class="text-sm text-gray-500 font-mono">01</span>
-                    <h3 class="text-xl md:text-2xl font-light group-hover:translate-x-2 transition-transform duration-500">Северный ветер</h3>
+            
+            <!-- ТРЕК 1 (Безупречная любовь) -->
+            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track1">
+                        <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div>
+                        <h3 class="text-lg md:text-2xl font-light">Безупречная любовь</h3>
+                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                    </div>
                 </div>
-                <span class="text-sm text-gray-500 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-500">03:45</span>
-            </a>
+                <a href="./audio/track1.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </a>
+                <audio id="audio-track1" src="./audio/track1.mp3" preload="none"></audio>
+            </div>
 
-            <!-- Трек 2 -->
-            <a href="https://band.link/02z6v" target="_blank" class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
-                <div class="flex items-center gap-6">
-                    <span class="text-sm text-gray-500 font-mono">02</span>
-                    <h3 class="text-xl md:text-2xl font-light group-hover:translate-x-2 transition-transform duration-500">Вода</h3>
+            <!-- ТРЕК 2 (Заглушка) -->
+            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track2">
+                        <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div>
+                        <h3 class="text-lg md:text-2xl font-light">Название трека 2</h3>
+                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                    </div>
                 </div>
-                <span class="text-sm text-gray-500 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-500">04:12</span>
-            </a>
+                <a href="./audio/track2.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </a>
+                <audio id="audio-track2" src="./audio/track2.mp3" preload="none"></audio>
+            </div>
 
-            <!-- Трек 3 -->
-            <a href="https://band.link/02z6v" target="_blank" class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
-                <div class="flex items-center gap-6">
-                    <span class="text-sm text-gray-500 font-mono">03</span>
-                    <h3 class="text-xl md:text-2xl font-light group-hover:translate-x-2 transition-transform duration-500">Пепел</h3>
+            <!-- ТРЕК 3 (Заглушка) -->
+            <div class="reveal group flex items-center justify-between py-6 border-b border-white/10 hover:border-white/30 transition-colors">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <button class="play-btn w-10 h-10 shrink-0 rounded-full border border-white/20 flex items-center justify-center hover:bg-light hover:text-dark transition-colors" data-audio="track3">
+                        <svg class="play-icon w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div>
+                        <h3 class="text-lg md:text-2xl font-light">Название трека 3</h3>
+                        <span class="text-xs text-gray-500 font-mono">MP3</span>
+                    </div>
                 </div>
-                <span class="text-sm text-gray-500 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-500">03:20</span>
-            </a>
+                <a href="./audio/track3.mp3" download class="p-3 text-gray-500 hover:text-light transition-colors">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </a>
+                <audio id="audio-track3" src="./audio/track3.mp3" preload="none"></audio>
+            </div>
+
         </div>
 
         <div class="mt-16 text-center reveal">
@@ -200,7 +220,6 @@
             <div class="reveal flex gap-8 text-sm tracking-widest uppercase text-gray-400">
                 <a href="https://vk.ru/annastarness" target="_blank" class="hover:text-light transition-colors">VK</a>
                 <a href="https://band.link/02z6v" target="_blank" class="hover:text-light transition-colors">Bandlink</a>
-                <a href="#" class="hover:text-light transition-colors">Telegram</a>
             </div>
             <div class="reveal text-xs text-gray-600 tracking-wider">
                 &copy; 2024 ANNA STARNESS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.
@@ -208,7 +227,7 @@
         </div>
     </footer>
 
-    <!-- ЛИПКАЯ КНОПКА (Mobile First) -->
+    <!-- ЛИПКАЯ КНОПКА -->
     <div id="sticky-cta" class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-sm z-50 translate-y-32 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <a href="https://band.link/02z6v" target="_blank" 
            class="flex items-center justify-center gap-3 w-full bg-light text-dark py-4 rounded-full font-medium tracking-widest uppercase text-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)] active:scale-95 transition-transform">
@@ -222,19 +241,18 @@
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 1. Анимации появления
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('active');
                 });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
             revealElements.forEach(el => revealObserver.observe(el));
 
+            // 2. Липкая кнопка
             const stickyBtn = document.getElementById('sticky-cta');
             const heroSection = document.querySelector('header');
-
             const heroObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
@@ -246,8 +264,44 @@
                     }
                 });
             }, { threshold: 0.1 });
-
             heroObserver.observe(heroSection);
+
+            // 3. Логика аудиоплеера (чтобы играл только один трек)
+            const playBtns = document.querySelectorAll('.play-btn');
+            const audios = document.querySelectorAll('audio');
+
+            playBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const audioId = btn.getAttribute('data-audio');
+                    const audio = document.getElementById(`audio-${audioId}`);
+                    
+                    // Ставим на паузу все остальные треки
+                    audios.forEach(a => {
+                        if (a !== audio) {
+                            a.pause();
+                            a.currentTime = 0;
+                            const otherBtn = document.querySelector(`.play-btn[data-audio="${a.id.replace('audio-', '')}"]`);
+                            if (otherBtn) otherBtn.classList.remove('is-playing');
+                        }
+                    });
+
+                    // Включаем/выключаем текущий
+                    if (audio.paused) {
+                        audio.play();
+                        btn.classList.add('is-playing');
+                    } else {
+                        audio.pause();
+                        btn.classList.remove('is-playing');
+                    }
+                });
+
+                // Когда трек заканчивается, возвращаем иконку Play
+                const audioId = btn.getAttribute('data-audio');
+                const audio = document.getElementById(`audio-${audioId}`);
+                audio.addEventListener('ended', () => {
+                    btn.classList.remove('is-playing');
+                });
+            });
         });
     </script>
 </body>
